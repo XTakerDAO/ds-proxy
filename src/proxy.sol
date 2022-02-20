@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity >=0.5.0 <=0.6.12;
 
 import "ds-auth/auth.sol";
 import "ds-note/note.sol";
@@ -58,7 +58,7 @@ contract DSProxy is DSAuth, DSNote {
         returns (bytes memory response)
     {
         require(_target != address(0), "ds-proxy-target-address-required");
-
+    /*
         // call contract in current context
         assembly {
             let succeeded := delegatecall(sub(gas, 5000), _target, add(_data, 0x20), mload(_data), 0, 0)
@@ -75,6 +75,7 @@ contract DSProxy is DSAuth, DSNote {
                 revert(add(response, 0x20), size)
             }
         }
+    */
     }
 
     //set new cache
